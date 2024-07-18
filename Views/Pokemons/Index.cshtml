@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Pokedex.Models.Pokemon>
+
+@{
+    ViewData["Title"] = "Pokemons";
+}
+
+
+<p>
+    <a asp-action="Create"><i class="bi bi-plus-square-fill" style="font-size: 4rem; color: #C41E3A;"></i></a>
+</p>
+
+<div class="d-flex justify-content-evenly  flex-wrap">
+    @foreach (var item in Model)
+    {
+        <div class="card" style="width: 18rem;">
+          <img src="@item.ImgUrl" class="card-img-top img-fluid mx-auto" alt="Picture of pokemon: @item.Name">
+          <div class="card-body">
+            <h5 class="card-title">@item.Name</h5>
+           
+            <p class="card-text">@item.Description</p>
+                <a asp-action="Details" asp-route-id="@item.Id "><i class="bi bi-info-circle" style="font-size: 2rem; color: #000000;"></i></a>
+                <a asp-action="Edit" asp-route-id="@item.Id"><i class="bi bi-pencil-square" style="font-size: 2rem; color: #FFFFFF;"></i></a>
+                <a asp-action="Delete" asp-route-id="@item.Id"><i class="bi bi-trash3-fill" style="font-size: 2rem; color: #FFFFFF;"></i></a>
+          </div>
+        </div>
+    }
+</div>
+     
+          
+ 
